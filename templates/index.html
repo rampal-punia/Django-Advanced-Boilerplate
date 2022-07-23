@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+<div class="col-md-9 mt-2">
+    <a href="{% url 'imageuploader:single_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Single Image Upload</a>
+    <a href="" class="btn btn-sm btn-outline-info" type="button">Cropped Image Upload</a>
+    <a href="" class="btn btn-sm btn-outline-info" type="button">Batch Images Upload</a>
+</div>
+{% endblock content %}

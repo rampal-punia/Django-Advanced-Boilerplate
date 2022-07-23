@@ -175,4 +175,17 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = 'login'
+
+# Celery settings
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'django-cache'
+
+# Celery Configuration Options
+CELERY_TIMEZONE = 'America/New_York'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

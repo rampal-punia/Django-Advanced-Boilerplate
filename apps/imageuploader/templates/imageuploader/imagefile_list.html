@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block on_page_css %}
+  <link href="{% static 'css/ekko-lightbox.css' %}" rel="stylesheet">
+{% endblock on_page_css %}
+
+{% block title %}
+    Single images list
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+<div class="col-md-9 mt-2">
+    {% for image in single_images %}
+    {% with image.get_imageurl as imgurl %}
+        <a href="{{ imgurl }}" data-toggle="lightbox" data-gallery="image-gallery">
+            <img src="{{ imgurl }}" alt="" class="image-fluid mx-2 my-2" width="250" height="auto" />
+        </a>
+    {% endwith %}
+    {% endfor %}
+</div>
+{% endblock content %}

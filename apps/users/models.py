@@ -13,6 +13,8 @@ class Organization(models.TextChoices):
 class CustomUser(AbstractUser):
     orig_name = models.CharField(
         choices=Organization.choices, max_length=2)
+    age = models.PositiveIntegerField(null=True, blank=True)
+    gender = models.CharField(max_length=21, null=True, blank=True)
 
 
 class Profile(models.Model):

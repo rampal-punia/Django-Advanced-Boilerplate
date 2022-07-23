@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/vendor/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'js/cropperjs/dist/cropper.min.css' %}" />
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'js/dropzone/src/dropzone.css' %}" />
-    <link rel="stylesheet" type="text/css" media="all" href="{% static 'js/lightbox/dist/ekko-lightbox.css' %}" />
 
+  {% endblock vendor_css %}
   {# Global styles #}
   {% block site_css %}
     <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/styles/style.css' %}" />
@@ -30,12 +30,29 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
   {% include 'partials/_nav.html' %}
-{% block leftbar %}
-    {# Leftbar on the Page #}
-{% endblock %}
-{% block content %}
-    {# Page content will go here #}
-{% endblock %}
+
+<div class="fluid-container mx-2">
+  {% if messages %}
+      {% for message in messages %}
+        <div class="message">
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" id="djangoMessage" role="alert">
+            {{ message }}
+            <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+              <span aria-hidden="true" id="messageDialogCloseBtn">&times;</span></button>       
+          </div>
+        </div>    
+      {% endfor %}
+    {% endif %}
+
+  <div class="row">
+    {% block leftbar %}
+        {# Leftbar on the Page #}
+    {% endblock %}
+    {% block content %}
+        {# Page content will go here #}
+    {% endblock %}
+  </div>
+</div>  
 
 {# Modal HTML #}
 {% block modals %}
