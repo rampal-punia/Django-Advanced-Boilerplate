@@ -1,0 +1,60 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block page_meta %}
+  {% endblock %}
+
+  {# Vendor styles #}
+  {% block vendor_css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/vendor/bootstrap.min.css' %}" />
+  {% endblock %}
+
+  {# Global styles #}
+  {% block site_css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/styles/style.css' %}" />
+  {% endblock %}
+
+  {# Page-specific styles #}
+  {% block on_page_css %}{% endblock %}
+
+  {% block extra_head %}
+    {# Extra header stuff (scripts, styles, metadata, etc) #}
+  {% endblock %}
+
+  <title>{% block page_title %}Home{% endblock %}</title>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  {% include 'partials/_nav.html' %}
+{% block leftbar %}
+    {# Leftbar on the Page #}
+{% endblock %}
+{% block content %}
+    {# Page content will go here #}
+{% endblock %}
+
+{# Modal HTML #}
+{% block modals %}
+{% endblock %}
+
+{# Vendor javascript #}
+{% block vendor_js %}
+{% endblock %}
+
+{# Global javascript #}
+{% block site_js %}
+  {% include 'partials/_scripts.html' %}
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{# Shared data for javascript #}
+{% block shared_data %}
+{% endblock %}
+
+{# Page javascript #}
+{% block on_page_js %}
+{% endblock %}
+</body>
+</html>
