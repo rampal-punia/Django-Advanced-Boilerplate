@@ -67,6 +67,7 @@ INSTALLED_APPS = [
 
     #### Third Party Apps #####
     'crispy_forms',
+    'django_cleanup.apps.CleanupConfig',
 
 ]
 
@@ -170,7 +171,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#default-auto-field
 
-AUTH_USER_MODEL =  'users.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
