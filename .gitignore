@@ -6,8 +6,8 @@ project_utils
 
 
 # images
-*.jpg
-*.png 
+*/*.jpg
+*/*.png 
 
 # media folder
 media
