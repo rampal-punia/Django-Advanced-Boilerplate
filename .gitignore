@@ -5,6 +5,13 @@ __pycache__/
 project_utils
 
 
+# images
+*.jpg
+*.png 
+
+# media folder
+media
+
 # C extensions
 *.so
 
