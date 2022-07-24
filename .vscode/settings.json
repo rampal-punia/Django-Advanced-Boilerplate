@@ -1,5 +1,29 @@
 {
     "cSpell.ignoreWords": [
-        "croppedimages"
+        "Cropperjs",
+        "Dropzonejs",
+        "Ekko",
+        "Pluggable",
+        "asgiref",
+        "autopep",
+        "backports",
+        "colorama",
+        "croppedimages",
+        "cropperjs",
+        "dateutil",
+        "didyoumean",
+        "dropzone",
+        "dropzoneimages",
+        "dropzonejs",
+        "kombu",
+        "lightbox",
+        "multipleimages",
+        "pycodestyle",
+        "pytz",
+        "singleimages",
+        "sqlparse",
+        "tzdata",
+        "wcwidth",
+        "zoneinfo"
     ]
 }

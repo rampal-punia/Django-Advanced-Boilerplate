@@ -1,42 +1,52 @@
 # Django Advance Boilerplate
 
-Django boilerplate for any scalable WebApp project. Equipped with users app, celery, lightbox.js, dropzone.js and cropper.js. 
+Django boilerplate for any scalable WebApp project. Equipped with users app, celery, lightbox.js, dropzone.js and cropper.js.
 
-## What's included
+## Project Structure
+- Separate app folder containing all apps
+    - Apps details:
+        - singleimages: To upload single image at a time using django forms and models.
 
-### Project level
+        - multipleimages: To upload multiple images using django forms and models.
 
-1. app folder 
-    - to keep all the apps at one place.
+        - croppedimages: To upload single original image using django forms and models, and then cropping that image(using cropperjs) and storing all cropped images corresponding to the orig image.
 
-2. requirements folder
-    Separate for base, development, production & testing
+        - dropzoneimages: To upload multiple images using dropzonejs.
 
-3. secrets.json
-    - to store database, email backend credentials and the secret-key
+        - Users: A users app with login, logout and sign up pages.
 
-4. Asset/static
+- Reusable/Pluggable Apps 
+    - All apps can be added to other projects with tweaking a little.
+
+- Secrets.json
+    - To store database, email backend credentials and the secret-key
+
+- Asset/static
     - Local static files with, bootstrap
 
-5. Templates folder
+- Templates folder
     - base.html
     - partials folder contains _nav, _paginator, _scripts and other html file
 
-### Other Python Packages
+- Requirements folder
+    - Separate for base, development, production & testing
+
+## Other Python Packages
 1. django-crispy-forms
 2. Pillow
 3. Django-cleanup
+4. OpenCV
 
-### Task queue manager
+## Task queue manager
 1. Celery
 
 
-### Javascript
-1. Ekko-lightbox
-2. Dropzonejs
-3. Cropperjs
+## Javascript
+- Ekko-lightbox: To display images in a lightbox.
 
+- Dropzonejs: To upload multiple images
 
+- Cropperjs: To crop an image at front-end
 
 ## Requirements
 ```bash
