@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Cropped images list
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+<div class="col-md-8 mt-2">
+    <div>
+    {% for single_image in images_qs %}
+    <div class="card border-info mx-4 mb-5">
+        <h4 class="card-title px-2 py-2">Original Image: {{ single_image.get_filename|capfirst }} </h4>
+        <img src="{{ single_image.get_imageurl }}" class="card-img-top" alt="..." />
+        <hr>
+        <div class="card-body">
+            <h5 class="card-title">Cropped Images</h5>
+            <div class="row">
+                {% for image in single_image.cropped_images.all %}
+                {% with image.get_imageurl as imgurl %}
+                <div class="col-sm-3">
+                    <a href="{{ imgurl }}" data-toggle="lightbox" data-gallery="image-gallery{{ forloop.parenloop.counter }}">
+                        <img src="{{ imgurl }}" alt="" class="img-fluid mx-1 my-1" width="250px" height="250px" />
+                    </a>
+                    <a href="{% url 'croppedimages:cropped_image_delete_url' image.id %}" class="btn btn-sm btn-outline-success mx-1 my-1">
+                        <img src="{% static 'img/cross.png' %}" alt="" />
+                    </a>
+                </div>
+                {% endwith %}
+                {%empty%}
+                <div class="card">
+                    <div class="card-body">
+                        Orig image not cropped yet!
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    	</div>
+    </div>
+    {% endfor %}
+    </div>
+    {% include 'partials/_paginator.html' %}
+</div>
+{% endblock content %}

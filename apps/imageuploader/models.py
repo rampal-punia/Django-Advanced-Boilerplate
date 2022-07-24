@@ -45,6 +45,12 @@ class ImageGroup(models.Model):
 
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("imageuploader:image_group_detail_url", kwargs={"pk": self.pk})
+
 
 class BatchImageFile(models.Model):
     '''Upload multiple images: Dropzone.'''

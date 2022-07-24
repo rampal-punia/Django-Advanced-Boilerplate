@@ -1,79 +1,58 @@
 import os
 import cv2
 
-from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
+from django.http import JsonResponse
 from django.core.files.base import ContentFile
-# from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic.base import TemplateView
-from django.views.generic import View
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
+from django.views.generic import View
 
-from .models import ImageFile, ImageGroup, BatchImageFile, CroppedImageFile
-from . import helper
+from .models import CroppedImageFile, OrigImageFile
 
 
-class HomeTemplateView(LoginRequiredMixin, TemplateView):
-    template_name = "index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user = self.request.user
-        images_qs = ImageFile.objects.filter(user=user)
-        context["image_qs"] = images_qs
-        return context
-
-
-class SingleImageUploadView(LoginRequiredMixin, CreateView):
-    model = ImageFile
-    fields = ["image"]
+class OrigImageUploadView(LoginRequiredMixin, CreateView):
+    model = OrigImageFile
+    fields = ["orig_image"]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-class SingleImageListView(LoginRequiredMixin, ListView):
-    model = ImageFile
-    context_object_name = 'single_images'
-    paginate_by = 50
+class OrigImageListView(LoginRequiredMixin, ListView):
+    '''Displays Orig images'''
+
+    model = OrigImageFile
+    context_object_name = 'images_qs'
+    template_name = "croppedimages/origimagefile_list.html"
+    paginate_by = 2
 
     def get_queryset(self):
         user = self.request.user
-        qs = ImageFile.objects.filter(user=user)
+        qs = OrigImageFile.objects.filter(user=user)
         return qs
 
 
-class SingleImageDetailView(LoginRequiredMixin, DetailView):
-    model = ImageFile
-    context_object_name = "image"
-
-
-class CroppedImageUploadView(LoginRequiredMixin, CreateView):
-    model = CroppedImageFile
-    fields = ["image"]
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+class OrigImageDetailView(LoginRequiredMixin, DetailView):
+    model = OrigImageFile
+    context_object_name = "orig_image"
 
 
 class CroppedImageListView(LoginRequiredMixin, ListView):
     '''Displays Orig images with their corresponding cropped images'''
 
-    model = ImageFile
+    model = OrigImageFile
     context_object_name = 'images_qs'
-    template_name = "imageuploader/croppedimagefile_list.html"
+    template_name = "croppedimages/croppedimagefile_list.html"
     paginate_by = 2
 
     def get_queryset(self):
         user = self.request.user
-        qs = ImageFile.objects.filter(user=user)
+        qs = OrigImageFile.objects.filter(user=user)
         return qs
 
 
@@ -101,7 +80,7 @@ class CroppedImageSaveView(View):
                 img_x, img_y, img_w, img_h = int(float(img_x)), int(float(
                     img_y)), int(float(img_w)), int(float(img_h))
 
-                orig_img = ImageFile.objects.get(id=img_id)
+                orig_img = OrigImageFile.objects.get(id=img_id)
                 print("orig_img", orig_img)
                 img = cv2.imread(orig_img.get_imagepath)
                 print("img", img)
@@ -114,7 +93,7 @@ class CroppedImageSaveView(View):
                         orig_img, buf)
                     messages.success(
                         self.request, f"Image file: {orig_img} is successfully uploaded.")
-                    cropped_img_url = reverse_lazy("imageuploader:cropped_image_detail_url", args=[
+                    cropped_img_url = reverse_lazy("croppedimages:cropped_image_detail_url", args=[
                         cropped_img_qs.id])
                     print("img_url", cropped_img_qs.get_imageurl)
                     print("cropped_img_url", cropped_img_url)
@@ -141,36 +120,4 @@ class CroppedImageSaveView(View):
 
 class CroppedImageDeleteView(LoginRequiredMixin, DeleteView):
     model = CroppedImageFile
-    success_url = reverse_lazy("imageuploader:cropped_images_list_url")
-
-
-class ImageGroupCreateView(LoginRequiredMixin, CreateView):
-    model = ImageGroup
-    fields = ['title', 'description']
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-
-class ImageGroupUpdateView(LoginRequiredMixin, UpdateView):
-    model = ImageGroup
-    fields = ['title', 'description']
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-
-class ImageGroupListView(LoginRequiredMixin, ListView):
-    model = ImageGroup
-    context_object_name = "image_groups"
-
-    def get_queryset(self):
-        user = self.request.user
-        return super().get_queryset().filter(user=user)
-
-
-class ImageGroupDetailView(LoginRequiredMixin, DetailView):
-    model = ImageGroup
-    context_object_name = "image_group"
+    success_url = reverse_lazy("croppedimages:cropped_images_list_url")

@@ -13,18 +13,19 @@
 {% block content %}
 <div class="col-md-9 mt-2">
     <div class="my-2">
-        <a href="{% url 'imageuploader:single_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Single Image Upload</a>
-        <a href="{% url 'imageuploader:cropped_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Cropped Image Upload</a>
-        <a href="" class="btn btn-sm btn-outline-info" type="button">Batch Images Upload</a>
+        <a href="{% url 'singleimages:single_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Single Image Upload</a>
+        <a href="{% url 'multipleimages:multiple_images_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Multiple Images Upload</a>
+        <a href="{% url 'croppedimages:orig_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Cropped Image Upload</a>
+         {% comment %}<a href="{% url 'imageuploader:image_group_create_url' %}" class="btn btn-sm btn-outline-info" type="button">Batch Images Upload</a> {% endcomment %}
     </div>
     <hr>
     <div class="mt-4">
         {% if image_qs %}
-            <a href="{% url 'imageuploader:single_image_list_url' %}" class="btn btn-sm btn-outline-success" type="button">Images List</a>
+            <a href="{% url 'singleimages:single_image_list_url' %}" class="btn btn-sm btn-outline-success" type="button">Images List</a>
         {% else %}
-            <a href="#" class="btn btn-sm btn-outline-success" type="button" disabled >Images List</a>
+            <a href="#" class="btn btn-sm btn-outline-success disabled" type="button" >Images List Not Created Yet!</a>
         {% endif %}
-        <a href="{% url 'imageuploader:cropped_image_upload_url' %}" class="btn btn-sm btn-outline-success" type="button">Image Groups</a>
+        {% comment %} <a href="{% url 'imageuploader:cropped_image_upload_url' %}" class="btn btn-sm btn-outline-success" type="button">Image Groups</a> {% endcomment %}
     </div>
 </div>
 {% endblock content %}

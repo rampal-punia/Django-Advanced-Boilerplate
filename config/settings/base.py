@@ -61,7 +61,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #### Project Apps ####
-    'imageuploader',
+    'croppedimages',
+    # 'dropzoneimages',
+    'multipleimages',
+    'singleimages',
     'users',
 
 

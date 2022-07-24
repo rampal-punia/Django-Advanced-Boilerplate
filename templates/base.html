@@ -27,7 +27,7 @@
     {# Extra header stuff (scripts, styles, metadata, etc) #}
   {% endblock %}
 
-  <title>{% block page_title %}Home{% endblock %}</title>
+  <title>My Website - {% block title %}{% endblock %}</title>
 </head>
 <body class="{% block body_class %}{% endblock %}">
   {% include 'partials/_nav.html' %}

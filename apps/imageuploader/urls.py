@@ -5,11 +5,13 @@ from . import views
 app_name = 'imageuploader'
 
 urlpatterns = [
+    # Home page
     path('',
          views.HomeTemplateView.as_view(),
          name="home_url"
          ),
 
+    # Single/orig image urls
     path('single_image_upload/',
          views.SingleImageUploadView.as_view(),
          name="single_image_upload_url"
@@ -25,6 +27,7 @@ urlpatterns = [
          name="single_image_detail_url"
          ),
 
+    # Cropped image urls
     path('cropped_image_save/',
          views.CroppedImageSaveView.as_view(),
          name="crop_image_js_url"
@@ -48,5 +51,26 @@ urlpatterns = [
     path('<int:pk>/delete_cropped_image/',
          views.CroppedImageDeleteView.as_view(),
          name="cropped_image_delete_url"
+         ),
+
+    # Image Group urls
+    path('create_image_group/',
+         views.ImageGroupCreateView.as_view(),
+         name="image_group_create_url"
+         ),
+
+    path('<int:pk>/Update_image_group/',
+         views.ImageGroupUpdateView.as_view(),
+         name="image_group_update_url"
+         ),
+
+    path('image_group_list/',
+         views.ImageGroupListView.as_view(),
+         name="image_group_list_url"
+         ),
+
+    path('<int:pk>/image_group_detail/',
+         views.ImageGroupDetailView.as_view(),
+         name="image_group_detail_url"
          ),
 ]

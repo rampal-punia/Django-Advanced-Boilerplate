@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}
+    Create Image Group
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+    <div class="col-md-6">
+        <div class="mb-4 px-4 pb-4">
+            <h4 class="my-2">Create Image Group</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-sm btn-outline-info mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

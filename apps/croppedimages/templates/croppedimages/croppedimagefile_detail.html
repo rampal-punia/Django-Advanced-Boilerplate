@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block on_page_css %}
+<style>
+    img {
+    display: block;
+
+    /* This rule is very important, please don't ignore this */
+    max-width: 100%;
+    }
+</style>
+{% endblock on_page_css %}
+
+{% block title %}
+    Crop Image
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+<div class="col-md-8 mt-2">
+    
+    <div class="mx-2 my-2">
+        <form action="#" id="cropImageForm" method="post">
+            {% csrf_token %}
+            <a href="{% url 'croppedimages:orig_images_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Images list</a>
+            <button id="saveCroppedAreaBtn" class="btn btn-sm btn-outline-success mb-2 mx-2" type="button">Save Cropped Area</button>
+        </form>
+        {{ cropimage }}
+        <img id="image" src="{{ cropimage.get_imageurl }}" alt="" class="img-fluid">
+    </div>
+
+    <div id="croppedImageDiv">
+
+    </div>
+    <a href="{% url 'croppedimages:cropped_images_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Cropped Images list</a>
+</div>
+{% endblock content %}
+
+{% block shared_data %}
+    {{ image.id|json_script:"imageId" }}
+{% endblock shared_data %}
+
+{% block on_page_js %}
+<script>
+{% comment %} {% include 'croppedimages/partials/_mycropper.js' %} {% endcomment %}
+</script>
+{% endblock on_page_js %}

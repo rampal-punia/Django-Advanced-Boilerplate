@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Single image detail
+{% endblock title %}
+
+{% block leftbar %}
+<div class="col-md-3">
+    {% include 'partials/_leftbar.html' %}
+</div>
+{% endblock leftbar %}
+
+{% block content %}
+<div class="col-md-8 mt-2">
+    
+    <div class="mx-2 my-2">
+        <form action="#" id="cropImageForm" method="post">
+            {% csrf_token %}
+            <a href="{% url 'singleimages:single_image_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Images list</a>
+            <button id="saveCroppedAreaBtn" class="btn btn-sm btn-outline-success mb-2 mx-2" type="button">Save Cropped Area</button>
+        </form>
+        <img id="image" src="{{ image.get_imageurl }}" alt="" class="img-fluid">
+    </div>
+</div>
+{% endblock content %}
+
