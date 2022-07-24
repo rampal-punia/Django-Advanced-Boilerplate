@@ -12,8 +12,19 @@
 
 {% block content %}
 <div class="col-md-9 mt-2">
-    <a href="{% url 'imageuploader:single_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Single Image Upload</a>
-    <a href="" class="btn btn-sm btn-outline-info" type="button">Cropped Image Upload</a>
-    <a href="" class="btn btn-sm btn-outline-info" type="button">Batch Images Upload</a>
+    <div class="my-2">
+        <a href="{% url 'imageuploader:single_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Single Image Upload</a>
+        <a href="{% url 'imageuploader:cropped_image_upload_url' %}" class="btn btn-sm btn-outline-info" type="button">Cropped Image Upload</a>
+        <a href="" class="btn btn-sm btn-outline-info" type="button">Batch Images Upload</a>
+    </div>
+    <hr>
+    <div class="mt-4">
+        {% if image_qs %}
+            <a href="{% url 'imageuploader:single_image_list_url' %}" class="btn btn-sm btn-outline-success" type="button">Images List</a>
+        {% else %}
+            <a href="#" class="btn btn-sm btn-outline-success" type="button" disabled >Images List</a>
+        {% endif %}
+        <a href="{% url 'imageuploader:cropped_image_upload_url' %}" class="btn btn-sm btn-outline-success" type="button">Image Groups</a>
+    </div>
 </div>
 {% endblock content %}

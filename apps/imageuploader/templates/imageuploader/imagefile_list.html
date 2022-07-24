@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block on_page_css %}
-  <link href="{% static 'css/ekko-lightbox.css' %}" rel="stylesheet">
-{% endblock on_page_css %}
-
 {% block title %}
     Single images list
 {% endblock title %}
@@ -17,12 +13,18 @@
 
 {% block content %}
 <div class="col-md-9 mt-2">
-    {% for image in single_images %}
-    {% with image.get_imageurl as imgurl %}
-        <a href="{{ imgurl }}" data-toggle="lightbox" data-gallery="image-gallery">
-            <img src="{{ imgurl }}" alt="" class="image-fluid mx-2 my-2" width="250" height="auto" />
-        </a>
-    {% endwith %}
-    {% endfor %}
+    <div class="row">
+        {% for image in single_images %}
+        {% with image.get_imageurl as imgurl %}
+        <div class="col-sm-3">
+            <a href="{{ imgurl }}" data-toggle="lightbox" data-gallery="image-gallery">
+                <img src="{{ imgurl }}" alt="" class="img-fluid mx-1 my-1" width="250px" height="250px" />
+            </a>
+            <a href="{% url 'imageuploader:single_image_detail_url' image.id %}" class="btn btn-sm btn-outline-success mx-1 my-1">Crop Image</a>
+        </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+    
 </div>
 {% endblock content %}

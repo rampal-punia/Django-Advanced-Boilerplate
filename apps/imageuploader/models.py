@@ -2,7 +2,7 @@ import os
 
 from django.db import models
 from django.conf import settings
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from . import helper
@@ -31,7 +31,7 @@ class ImageFile(models.Model):
         return os.path.split(self.image.path)[-1]
 
     def get_absolute_url(self):
-        return reverse("imageuploader:single_image_list_url", kwargs={"pk": self.pk})
+        return reverse_lazy("imageuploader:single_image_detail_url", kwargs={"pk": self.pk})
 
 
 class ImageGroup(models.Model):
@@ -80,6 +80,12 @@ class CroppedImageFile(models.Model):
                              related_name="cropped_images",
                              on_delete=models.CASCADE
                              )
+    orig_image = models.ForeignKey("imageuploader.ImageFile",
+                                   related_name="cropped_images",
+                                   on_delete=models.CASCADE,
+                                   null=True,
+                                   blank=True
+                                   )
     image = models.ImageField(upload_to="cropped_images")
 
     @property
@@ -94,5 +100,5 @@ class CroppedImageFile(models.Model):
     def get_filename(self):
         return os.path.split(self.image.path)[-1]
 
-    # def get_absolute_url(self):
-    #     return reverse("imageuploader:model_detail_url", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("imageuploader:model_detail_url", kwargs={"pk": self.pk})
