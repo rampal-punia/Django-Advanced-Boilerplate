@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Single images list
+    Multiple images list
 {% endblock title %}
 
 {% block leftbar %}
@@ -14,13 +14,19 @@
 {% block content %}
 <div class="col-md-9 mt-2">
     <div class="row">
-        {% for image in single_images %}
+        <h4 class="mb-4">All images uploaded by user: {{ request.user|capfirst }} by Dropzone.
+            <a type="button" class="btn btn-sm btn-outline-info" href="{% url 'dropzoneimages:upload_images_url' imageset.id %}">Upload More images</a>
+        </h4>
+        <hr>
+        {% for image in images %}
         {% with image.get_imageurl as imgurl %}
         <div class="col-sm-3">
             <a href="{{ imgurl }}" data-toggle="lightbox" data-gallery="image-gallery">
                 <img src="{{ imgurl }}" alt="" class="img-fluid mx-1 my-1" width="250px" height="250px" />
             </a>
-            <a href="{% url 'imageuploader:single_image_detail_url' image.id %}" class="btn btn-sm btn-outline-success mx-1 my-1">Crop Image</a>
+            <a href="{% url 'dropzoneimages:dz_image_delete_url' image.image_set.id image.id %}" class="btn btn-sm btn-outline-success mx-1 my-1">
+                <img src="{% static 'img/cross.png' %}" alt="" />
+            </a>
         </div>
         {% endwith %}
         {% endfor %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Confirm delete - cropped image
+    Confirm delete - Image in {{ object.image_set.name }}
 {% endblock title %}
 
 {% block leftbar %}
@@ -16,7 +16,7 @@
     <form action="" method="post">
     {% csrf_token %}
       <div class="alert alert-danger" role="alert">
-      You are about to delete the Cropped Image {{ object.get_filename|capfirst }}.
+      You are about to delete the Image {{ object.get_filename|capfirst }}.
       </div>
     <input type="submit" value="Confirm Delete" class="btn btn-outline-danger">
   </form>

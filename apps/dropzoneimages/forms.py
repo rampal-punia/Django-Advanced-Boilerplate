@@ -1,11 +1,11 @@
 from django import forms
-from .models import MultipleImageFile
+from .models import ImagesUpload
 
 
-class MultipleImagesUploadForm(forms.ModelForm):
+class DzImagesUploadForm(forms.ModelForm):
     image = forms.FileField(
         widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     class Meta:
-        model = MultipleImageFile
+        model = ImagesUpload
         fields = ['image']

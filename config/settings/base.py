@@ -61,9 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #### Project Apps ####
-    'croppedimages.apps.CroppedimagesConfig',
-    # 'croppedimages',
-    'dropzoneimages.apps.DropzoneimagesConfig',
+    'croppedimages',
+    'dropzoneimages',
     'multipleimages',
     'singleimages',
     'users',
@@ -90,7 +89,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,7 +163,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
@@ -188,7 +187,7 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_RESULT_BACKEND = 'django-cache'
 
 # Celery Configuration Options
-CELERY_TIMEZONE = 'America/New_York'
+CELERY_TIMEZONE = 'Asia/Kolkata'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 

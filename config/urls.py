@@ -30,7 +30,7 @@ urlpatterns = [
     path('images/', include("singleimages.urls", namespace="singleimages")),
     path('multipleimages/', include("multipleimages.urls", namespace="multipleimages")),
     path('croppedimages/', include("croppedimages.urls", namespace="croppedimages")),
-    # path('dropzoneimages/', include("dropzoneimages.urls", namespace="dropzoneimages")),
+    path('dropzoneimages/', include("dropzoneimages.urls", namespace="dropzoneimages")),
 
     ########### User Account #############
     path('register/',

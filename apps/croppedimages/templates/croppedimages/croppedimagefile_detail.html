@@ -45,8 +45,3 @@
     {{ image.id|json_script:"imageId" }}
 {% endblock shared_data %}
 
-{% block on_page_js %}
-<script>
-{% comment %} {% include 'croppedimages/partials/_mycropper.js' %} {% endcomment %}
-</script>
-{% endblock on_page_js %}

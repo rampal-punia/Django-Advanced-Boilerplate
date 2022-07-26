@@ -24,8 +24,10 @@ class MultipleImagesUploadView(LoginRequiredMixin, View):
         uploaded_images = self.request.FILES.getlist('image')
         if len(uploaded_images) > 1:
             multiple_files = True
+            # Do something
         else:
             multiple_files = False
+            # Do something else
 
         if form.is_valid:
             for index, file in enumerate(uploaded_images):
