@@ -2,6 +2,9 @@
 
 Django boilerplate for any scalable WebApp project. Equipped with users app, celery, lightbox.js, dropzone.js and cropper.js.
 
+## Why this boilerplate is required?
+- To avoid the repetitive tasks of setting up a new Django Web App project. If a project requires image upload, and user login/register functionalities, this boilerplate can be used for easy start up.
+
 ## Project Structure
 - Separate app folder containing all apps
     - Apps details:
@@ -32,14 +35,13 @@ Django boilerplate for any scalable WebApp project. Equipped with users app, cel
     - Separate for base, development, production & testing
 
 ## Other Python Packages
-1. django-crispy-forms
-2. Pillow
-3. Django-cleanup
-4. OpenCV
+- django-crispy-forms
+- Pillow
+- Django-cleanup
+- OpenCV
 
 ## Task queue manager
-1. Celery
-
+- Celery
 
 ## Javascript
 - Ekko-lightbox: To display images in a lightbox.
@@ -47,6 +49,21 @@ Django boilerplate for any scalable WebApp project. Equipped with users app, cel
 - Dropzonejs: To upload multiple images
 
 - Cropperjs: To crop an image at front-end
+
+## Used dependencies
+
+This boilerplate relies on the following plugins, libraries and frameworks:
+
+- [Bootstrap](https://getbootstrap.com/)
+- [Django](https://www.djangoproject.com/)
+- [django-registration](https://github.com/ubernostrum/django-registration)
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Pillow](https://github.com/python-pillow/Pillow)
+- [Opencv2](https://opencv.org/)
+- [Dropzone](https://www.dropzone.dev/js/)
+- [CropperJs](https://fengyuanchen.github.io/cropperjs/)
+- [Ekko-lightbox-BS5](https://github.com/trvswgnr/bs5-lightbox)
+
 
 ## Requirements
 ```bash
