@@ -3,7 +3,7 @@
 
 {% block on_page_css %}
   <link rel="stylesheet" type="text/css" href="{% static 'js/dropzone/src/basic.min.css' %}" > 
-  <link rel="stylesheet" type="text/css" href="{% static 'js/dropzone/src/dropzone.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'js/dropzone/src/dropzone.min.css' %}" />
 {% endblock on_page_css %}
 
 {% block title %}
@@ -19,21 +19,22 @@
 {% block content %}
     <div class="col-md-6 offset-1">
         <h4 class="mb-4">Upload images to {{ imageset.name|capfirst }} image set.</h4>
-        <form action="{% url 'dropzoneimages:upload_images_url' imageset.id %}" method="post" enctype="multipart/form-data" class="dropzone dz" id="DzImageImport" >
+        <form action="{% url 'dropzoneimages:upload_images_url' imageset.id %}" method="post" enctype="multipart/form-data" class="dropzone" id="DzImageImport" >
             {% csrf_token %}
-            <div class="dz-default dz-message upload_client">
-                Drag & Drop Image files here or <strong>click here</strong> to upload.
-            </div>
         </form>
         <button id="imagesUploadBtn" type="submit" class="btn btn-sm btn-outline-info mt-2">Submit</button>
+        <div id="output">
+
+        </div>
     </div>
 {% endblock content %}
 
 {% block on_page_js %}
-<script src="{% static 'js/dropzone/src/dropzone.min.js' %}"></script>
+<script src="{% static 'js/dropzone/src/dropzone.js' %}"></script>
 
 <script>
-    {% include 'dropzoneimages/partials/_dzconfig.html' %}
+    {% include 'dropzoneimages/partials/_dz_config.html' %}
 </script>
 
 {% endblock on_page_js %}
+{% include 'dropzoneimages/partials/_dzconfig.html' %}

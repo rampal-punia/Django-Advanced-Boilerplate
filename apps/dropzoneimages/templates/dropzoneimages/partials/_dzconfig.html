@@ -1,7 +1,9 @@
 let postUrl = $("#DzImageImport").attr("action")
+
 let csrf = document.querySelector('[name=csrfmiddlewaretoken]').value
+
 Dropzone.options.DzImageImport = false
-console.log()
+
 let imageDropZone = Dropzone.options.DzImageImport = {
     url: postUrl,
     autoProcessQueue: false, //stops from uploading files until user submits form
@@ -38,15 +40,14 @@ let imageDropZone = Dropzone.options.DzImageImport = {
                     url: postUrl,
                     data: {
                         csrfmiddlewaretoken: csrf,
-                        // csrfmiddlewaretoken: csrftoken,
                         done: "done"
                     },
                     dataType: "json",
                     success: function (response) {
                         setTimeout(() => {
-                            // $("#alertNumImageUploaded").addClass("show")
-                            // $("#alertNumImageUploaded").html(`<p> ${response["message"]}</p>`)
+                            // do something here...
                             setTimeout(() => {
+                                // Auto replace the url
                                 window.location.replace(response["redirect_to"])
                             }, 2000);
                         }, 1000);
@@ -60,9 +61,7 @@ let imageDropZone = Dropzone.options.DzImageImport = {
                     data: { csrfmiddlewaretoken: csrf, notdone: "not done" },
                     dataType: "json",
                     success: function (response) {
-                        $("#alertNoImageToUpload").addClass("show")
-                        $("#alertNoImageToUpload").fadeOut(10000);
-                        // window.location.reload()
+                        // Do something here...
                     }
                 });
             }
@@ -71,6 +70,7 @@ let imageDropZone = Dropzone.options.DzImageImport = {
 
 
     accept: function (file, done) {
+        // Do something here...
         done()
     },
     headers: {

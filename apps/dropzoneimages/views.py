@@ -6,7 +6,6 @@ from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import ImageSet, ImagesUpload
-from .forms import DzImagesUploadForm
 
 
 class ImageSetCreateView(LoginRequiredMixin, CreateView):
@@ -35,10 +34,7 @@ class DzImagesUploadView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         imageset_id = self.kwargs.get("pk")
         imageset = get_object_or_404(ImageSet, id=imageset_id)
-        print(imageset)
-        form = DzImagesUploadForm()
         context = {
-            'form': form,
             'imageset': imageset,
         }
         return render(request, 'dropzoneimages/imagesupload_form.html', context)
