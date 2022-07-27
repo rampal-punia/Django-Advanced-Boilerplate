@@ -1,9 +1,10 @@
-# Django Advance Boilerplate
+# Django Advance Boilerplate With Different Image Upload Apps.
 
 Django boilerplate for any scalable WebApp project. Equipped with users app, celery, lightbox.js, dropzone.js and cropper.js.
 
 ## Why this boilerplate?
-- To avoid the repetitive tasks of setting up a new Django Web App project. If a project requires image upload, and user login/register functionalities, this boilerplate can be used for easy start up.
+- To avoid the repetitive tasks of setting up a new Django Web App project. If a project requires image upload, and user login/register functionalities, this boilerplate can be used for easy start up. 
+ 
 
 ## Project Structure
 - Separate app folder containing all apps

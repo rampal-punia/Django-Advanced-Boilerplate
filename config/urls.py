@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomeTemplateView.as_view(), name="home_url"),
 
-    path('images/', include("singleimages.urls", namespace="singleimages")),
+    path('singleimages/', include("singleimages.urls", namespace="singleimages")),
     path('multipleimages/', include("multipleimages.urls", namespace="multipleimages")),
     path('croppedimages/', include("croppedimages.urls", namespace="croppedimages")),
     path('dropzoneimages/', include("dropzoneimages.urls", namespace="dropzoneimages")),

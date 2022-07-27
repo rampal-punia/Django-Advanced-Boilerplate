@@ -5,11 +5,12 @@ from django.conf import settings
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
+from config.models import CreationModificationDateBase
 
 User = settings.AUTH_USER_MODEL
 
 
-class ImageFile(models.Model):
+class ImageFile(CreationModificationDateBase):
     '''Upload single image'''
     user = models.ForeignKey(User,
                              related_name="images",

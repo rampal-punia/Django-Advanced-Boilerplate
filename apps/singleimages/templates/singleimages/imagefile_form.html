@@ -8,8 +8,10 @@
 {% endblock leftbar %}
 
 {% block content %}
-    <div class="col-md-9">
-        <form action="" method="post" enctype="multipart/form-data" >
+    <div class="col-md-6">
+
+        <form action="" method="post" enctype="multipart/form-data" class="mt-2">
+            <legend class="border-bottom">Single image upload</legend>
             {% csrf_token %}
             {{ form|crispy }}
 
