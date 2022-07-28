@@ -14,10 +14,6 @@
 {% block content %}
 <div class="col-md-9 mt-2">
     <div class="row">
-        <h4 class="mb-4">All images uploaded by user: {{ request.user|capfirst }}
-            <a type="button" class="btn btn-sm btn-outline-info" href="{% url 'multipleimages:multiple_images_upload_url' %}">Upload More images</a>
-        </h4>
-        <hr>
         {% for image in multi_images %}
         {% with image.get_imageurl as imgurl %}
         <div class="col-sm-3">
@@ -29,6 +25,12 @@
             </a>
         </div>
         {% endwith %}
+        {%empty%}
+        <div class="card">
+            <div class="card-body">
+                Nil image file uploaded yet!
+            </div>
+        </div>
         {% endfor %}
     </div>
     

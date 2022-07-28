@@ -1,6 +1,7 @@
 import os
 
 from django.db import models
+from django.core.validators import validate_image_file_extension
 from django.urls import reverse_lazy
 from django.conf import settings
 
@@ -14,7 +15,8 @@ class OrigImageFile(models.Model):
                              related_name="orig_images",
                              on_delete=models.CASCADE
                              )
-    orig_image = models.ImageField(upload_to="images")
+    orig_image = models.ImageField(upload_to="images",
+                                   validators=[validate_image_file_extension])
 
     @property
     def get_imageurl(self):
@@ -29,7 +31,7 @@ class OrigImageFile(models.Model):
         return os.path.split(self.orig_image.path)[-1]
 
     def get_absolute_url(self):
-        return reverse_lazy("croppedimages:orig_images_list_url")
+        return reverse_lazy("croppedimages:crop_orig_image_url", kwargs={'pk': self.id})
 
 
 class CroppedImageFile(models.Model):

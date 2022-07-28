@@ -23,20 +23,6 @@ class OrigImageUploadView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class OrigImageListView(LoginRequiredMixin, ListView):
-    '''Displays Orig images'''
-
-    model = OrigImageFile
-    context_object_name = 'images_qs'
-    template_name = "croppedimages/origimagefile_list.html"
-    paginate_by = 2
-
-    def get_queryset(self):
-        user = self.request.user
-        qs = OrigImageFile.objects.filter(user=user)
-        return qs
-
-
 class OrigImageDetailView(LoginRequiredMixin, DetailView):
     model = OrigImageFile
     context_object_name = "orig_image"
@@ -48,7 +34,7 @@ class CroppedImageListView(LoginRequiredMixin, ListView):
     model = OrigImageFile
     context_object_name = 'images_qs'
     template_name = "croppedimages/croppedimagefile_list.html"
-    paginate_by = 2
+    paginate_by = 3
 
     def get_queryset(self):
         user = self.request.user
@@ -67,23 +53,19 @@ class CroppedImageSaveView(View):
     def post(self, *args, **kwargs):
         context = {}
         img_id = int(self.request.POST.get("imageId"))
-        print(img_id)
 
         img_x = self.request.POST.get('x')
         img_y = self.request.POST.get('y')
         img_w = self.request.POST.get('w')
         img_h = self.request.POST.get('h')
         crop = self.request.POST.get("crop")
-        print(img_x, img_y, img_h, img_w)
         if crop:
             if not (img_x is None or img_y is None or img_w is None or img_h is None):
                 img_x, img_y, img_w, img_h = int(float(img_x)), int(float(
                     img_y)), int(float(img_w)), int(float(img_h))
 
                 orig_img = OrigImageFile.objects.get(id=img_id)
-                print("orig_img", orig_img)
                 img = cv2.imread(orig_img.get_imagepath)
-                print("img", img)
                 try:
                     cropped_img = img[img_y:img_y+img_h, img_x:img_x+img_w]
 
@@ -91,16 +73,14 @@ class CroppedImageSaveView(View):
 
                     cropped_img_qs = self.create_croppedimgmodel_from_crop(
                         orig_img, buf)
-                    messages.success(
-                        self.request, f"Image file: {orig_img} is successfully uploaded.")
+                    message = f"Image file: {orig_img} is successfully uploaded."
                     cropped_img_url = reverse_lazy("croppedimages:cropped_image_detail_url", args=[
                         cropped_img_qs.id])
-                    print("img_url", cropped_img_qs.get_imageurl)
-                    print("cropped_img_url", cropped_img_url)
                     context["success"] = "success"
                     context["img_url"] = cropped_img_qs.get_imageurl
                     context["cropped_img_id"] = cropped_img_qs.id
                     context["cropped_img_url"] = cropped_img_url
+                    context["message"] = message
                     return JsonResponse(context)
                 except Exception as e:
                     print(e)

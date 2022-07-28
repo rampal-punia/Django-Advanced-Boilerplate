@@ -11,11 +11,6 @@ urlpatterns = [
          name="orig_image_upload_url"
          ),
 
-    path('orig_images_list/',
-         views.OrigImageListView.as_view(),
-         name="orig_images_list_url"
-         ),
-
     path('<int:pk>/crop_image/',
          views.OrigImageDetailView.as_view(),
          name="crop_orig_image_url"

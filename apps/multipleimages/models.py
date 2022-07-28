@@ -2,7 +2,7 @@ import os
 
 from django.db import models
 from django.conf import settings
-from django.urls import reverse_lazy
+from django.core.validators import validate_image_file_extension
 from django.utils.translation import gettext_lazy as _
 
 
@@ -17,7 +17,8 @@ class MultipleImageFile(models.Model):
                              on_delete=models.CASCADE
                              )
 
-    image = models.ImageField(upload_to="images")
+    image = models.ImageField(upload_to="images",
+                              validators=[validate_image_file_extension])
 
     @property
     def get_imageurl(self):

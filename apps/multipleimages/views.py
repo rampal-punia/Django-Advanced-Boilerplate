@@ -24,7 +24,7 @@ class MultipleImagesUploadView(LoginRequiredMixin, View):
         uploaded_images = self.request.FILES.getlist('image')
         if len(uploaded_images) > 1:
             multiple_files = True
-            # Do something
+            # Do something, if required, or simply delete this part.
         else:
             multiple_files = False
             # Do something else
@@ -32,7 +32,9 @@ class MultipleImagesUploadView(LoginRequiredMixin, View):
         if form.is_valid:
             for index, file in enumerate(uploaded_images):
                 self.request.FILES['image'] = file
-                print(f"working on file {file}")
+                # or anything else you want to display/ or delete this part
+                print(f"working on file {index + 1}:{file}")
+
                 user = self.request.user
                 img = MultipleImageFile(image=file, user=user)
                 img.save()
@@ -43,6 +45,7 @@ class MultipleImageListView(LoginRequiredMixin, ListView):
     model = MultipleImageFile
     context_object_name = 'multi_images'
     paginate_by = 50
+    ordering = ['-id']
 
     def get_queryset(self):
         user = self.request.user

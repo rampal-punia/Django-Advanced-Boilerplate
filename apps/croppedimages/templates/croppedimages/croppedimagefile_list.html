@@ -42,7 +42,16 @@
                 {% endfor %}
             </div>
     	</div>
+        <div class="card-footer">
+            <a href="{% url 'croppedimages:crop_orig_image_url' single_image.id %}" class="btn btn-sm btn-outline-success mx-1 my-1">Crop Orig Image</a>
+        </div>
     </div>
+    {%empty%}
+        <div class="card">
+            <div class="card-body">
+                Nil image file uploaded yet!
+            </div>
+        </div>
     {% endfor %}
     </div>
     {% include 'partials/_paginator.html' %}

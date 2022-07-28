@@ -9,6 +9,7 @@
 
 {% block content %}
     <div class="col-md-9">
+        <legend class="border-bottom">Upload Multiple Images Using Django</legend>
         <form action="" method="post" enctype="multipart/form-data" >
             {% csrf_token %}
             {{ form|crispy }}

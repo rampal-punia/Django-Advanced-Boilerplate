@@ -3,12 +3,26 @@
     Leftbar
     </li>
     {% if 'singleimages' in request.path %}
-      {% if 'single_images' %}
       <li class="list-group-item">
         <a href="{% url 'singleimages:single_image_list_url' %}"> Single Images List</a>
       </li>
-      {% endif %}
-    {% else %}
+      <li class="list-group-item">
+        <a href="{% url 'singleimages:single_image_upload_url' %}">Upload single image</a>
+      </li>
+
+    {% elif 'multipleimages' in request.path %}
+      <li class="list-group-item">
+        <a href="{% url 'multipleimages:multiple_image_list_url' %}"> Multiple Images List</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'multipleimages:multiple_images_upload_url' %}">Upload Multiple images</a>
+      </li>
+    
+    {% elif 'croppedimages' in request.path %}
+        <li class="list-group-item">
+        <a href="{% url 'croppedimages:cropped_images_list_url' %}"> Cropped Images List</a>
+      </li>
+      
     {% endif %}
     
   </ul>

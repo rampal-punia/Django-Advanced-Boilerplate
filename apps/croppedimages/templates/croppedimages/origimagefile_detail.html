@@ -22,22 +22,22 @@
 {% endblock leftbar %}
 
 {% block content %}
-<div class="col-md-8 mt-2">
-    
+<div class="col-md-6 mt-2">
+    <div id="ResponseMessage" class="alert alert-success hide" role="alert">
+    </div>
     <div class="mx-2 my-2">
         <form action="#" id="cropImageForm" method="post">
             {% csrf_token %}
-            <a href="{% url 'croppedimages:orig_images_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Images list</a>
+            <a href="{% url 'croppedimages:cropped_images_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Cropped Images list</a>
             <button id="saveCroppedAreaBtn" class="btn btn-sm btn-outline-success mb-2 mx-2" type="button">Save Cropped Area</button>
         </form>
         <img id="image" src="{{ orig_image.get_imageurl }}" alt="" class="img-fluid">
     </div>
-
-    <div id="croppedImageDiv">
-
-    </div>
-    <a href="{% url 'croppedimages:cropped_images_list_url' %}" class="btn btn-sm btn-outline-info mb-2 mx-2" type="button">Cropped Images list</a>
 </div>
+<div class="col-md-3 mt-2">
+    <h5 id="croppedImgHeading" class="my-3">Cropped image will appear here.</h5>
+    <div id="croppedImageDiv"></div>
+<div>
 {% endblock content %}
 
 {% block shared_data %}
