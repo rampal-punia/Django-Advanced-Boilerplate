@@ -71,7 +71,6 @@ INSTALLED_APPS = [
     #### Third Party Apps #####
     'crispy_forms',
     'django_cleanup.apps.CleanupConfig',
-
 ]
 
 MIDDLEWARE = [
@@ -190,5 +189,6 @@ CELERY_RESULT_BACKEND = 'django-cache'
 CELERY_TIMEZONE = 'Asia/Kolkata'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
