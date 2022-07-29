@@ -17,7 +17,7 @@ def register(request):
             user.save()
             messages.success(
                 request, f'Your account with {username} has been created! You are now able to log in')
-            return redirect('registration_under_approval_url')
+            return redirect('users:registration_under_approval_url')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -26,7 +26,7 @@ def register(request):
 class RegistrationUnderApproval(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        # Do something here!
         return context
 
 

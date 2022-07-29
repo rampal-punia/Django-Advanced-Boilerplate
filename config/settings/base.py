@@ -178,9 +178,9 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home/'
 
-LOGIN_URL = 'login'
+LOGIN_URL = '/'
 
 # Celery settings
 CELERY_RESULT_BACKEND = 'django-db'
