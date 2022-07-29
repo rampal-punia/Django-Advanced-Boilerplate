@@ -93,6 +93,8 @@ django-crispy-forms==1.14.0
 django-debug-toolbar==3.5.0
 django-timezone-field==5.0
 kombu==5.2.4
+numpy==1.23.1
+opencv-contrib-python==4.6.0.66
 Pillow==9.2.0
 prompt-toolkit==3.0.30
 pycodestyle==2.8.0
@@ -105,5 +107,4 @@ toml==0.10.2
 tzdata==2022.1
 vine==5.0.0
 wcwidth==0.2.5
-
 ```
