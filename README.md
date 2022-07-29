@@ -22,10 +22,16 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
 - Reusable/Pluggable Apps 
     - All apps can be added to other projects with tweaking a little.
 
+- Settings.py
+    - base.py
+    - development.py
+    - production.py
+    - test.py
+
 - Secrets.json
     - To store database, email backend credentials and the secret-key
 
-- Asset/static
+- static
     - Local static files with, bootstrap
 
 - Templates folder
