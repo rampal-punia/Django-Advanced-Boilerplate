@@ -2,8 +2,8 @@
 {% load static crispy_forms_tags %}
 
 {% block on_page_css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'js/dropzone/src/basic.min.css' %}" > 
-  <link rel="stylesheet" type="text/css" href="{% static 'js/dropzone/src/dropzone.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basic.min.css' %}" > 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/dropzone.min.css' %}" />
 {% endblock on_page_css %}
 
 {% block title %}
@@ -30,7 +30,7 @@
 {% endblock content %}
 
 {% block on_page_js %}
-<script src="{% static 'js/dropzone/src/dropzone.min.js' %}"></script>
+<script src="{% static 'js/dropzone.min.js' %}"></script>
 
 <script>
     {% include 'dropzoneimages/partials/_dzconfig.html' %}

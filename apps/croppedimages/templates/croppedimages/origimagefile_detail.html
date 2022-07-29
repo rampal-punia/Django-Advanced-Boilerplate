@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block on_page_css %}
+<link rel="stylesheet" href="{% static 'css/cropper.min.css' %}">
 <style>
     img {
     display: block;
