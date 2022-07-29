@@ -1,6 +1,6 @@
 # Django Advance Boilerplate With Different Image Upload Apps.
 
-Django boilerplate for any scalable WebApp project. Equipped with users app, celery, lightbox.js, dropzone.js and cropper.js.
+Django boilerplate for any scalable WebApp project. Equipped with users app, celery, django-debug-toolbar, lightbox.js, dropzone.js and cropper.js.
 
 ## Why this boilerplate?
 - To avoid the repetitive tasks of setting up a new Django Web App project. If a project requires image upload, and user login/register functionalities, this boilerplate can be used for easy start up. 
@@ -64,7 +64,7 @@ This boilerplate relies on the following plugins, libraries and frameworks:
 - [Dropzone](https://www.dropzone.dev/js/)
 - [CropperJs](https://fengyuanchen.github.io/cropperjs/)
 - [Ekko-lightbox-BS5](https://github.com/trvswgnr/bs5-lightbox)
-
+- [django-debug-toolbar](https://github.com/jazzband/django-debug-toolbar)
 
 ## Requirements
 ```bash
