@@ -45,6 +45,7 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
 
 ### Login
 <img src="static\img\login.png" height=auto width=450>
+
 ### Register
 <img src="static\img\register.png" height=auto width=450>
 
