@@ -43,12 +43,29 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
 
 ## Overview
 
-<img src="static\img\login.png" height=auto width=450> 
+### Login
+<img src="static\img\login.png" height=auto width=450> cropper app
+
+### Register
 <img src="static\img\register.png" height=auto width=450>
+
+### Registration under approval.
+- Login through django admin after createsuperuser command, in users model check active box.
+- Logout from django admin
+- Restart app and login again.
+
 <img src="static\img\reg_under_approve.png" height=auto width=450>
+
+### Main page
 <img src="static\img\dashboard.png" height=auto width=450>
+
+### Upload single image app
 <img src="static\img\single.png" height=auto width=450>
+
+### Cropperjs
 <img src="static\img\cropperjs.png" height=auto width=450>
+
+### Images uploaded via dropzone.
 <img src="static\img\dropzone.png" height=auto width=450>
 
 
