@@ -18,6 +18,9 @@ class OrigImageFile(models.Model):
     orig_image = models.ImageField(upload_to="images",
                                    validators=[validate_image_file_extension])
 
+    def __str__(self):
+        return f"{self.get_filename}"
+
     @property
     def get_imageurl(self):
         return self.orig_image.url
@@ -48,6 +51,9 @@ class CroppedImageFile(models.Model):
                                    blank=True
                                    )
     image = models.ImageField(upload_to="cropped_images")
+
+    def __str__(self) -> str:
+        return f"{self.get_filename}"
 
     @property
     def get_imageurl(self):

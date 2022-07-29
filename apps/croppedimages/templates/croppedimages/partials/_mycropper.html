@@ -36,16 +36,16 @@ $(document).ready(function () {
             data: expData,
             // dataType: "dataType",
             success: function (response) {
-                $("#croppedImageDiv").html(`<img src="${response["img_url"]}" id="croppedImage">`);
-                $("#croppedImgHeading").html(`<h5 id="croppedImgHeading" class="my-3">Cropped image</h5>`);
+                $("#croppedImageDiv").html(`<img src="${response["img_url"]}" id="croppedImage" class="img-fluid">`);
+                $("#croppedImgHeading").html(`<h6 id="croppedImgHeading" class="my-3">Cropped image</h6>`);
                 $("#ResponseMessage").html(`${response["message"]}`);
                 $("#ResponseMessage").show();
                 setTimeout(() => {
                     $("#ResponseMessage").hide();
                 }, 3000);
                 // may be used further
-                cropped_img_id = response["cropped_img_id"]
-                cropped_img_url = response["cropped_img_url"]
+                // cropped_img_id = response["cropped_img_id"]
+                // cropped_img_url = response["cropped_img_url"]
             }
         });
     })

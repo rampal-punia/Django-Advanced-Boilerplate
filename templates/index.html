@@ -11,14 +11,14 @@
 {% endblock leftbar %}
 
 {% block content %}
-<div class="col-md-8 mt-2 mx-4">
+<div class="col-md-7 mt-2 mx-4">
     <div class="card">
     <h5 class="card-header">Django Boilerplate to start a scalable WebApp Project.</h5>
     <div class="card-body">
-        <h5 class="card-title">With User management and Images upload apps.</h5>
+        <h5 class="card-title">With User management and multiple apps for uploading images.</h5>
         <p class="card-text">Use any one of the image upload method or you can try all first and decide...</p>
-        <a href="{% url 'singleimages:single_image_upload_url' %}" class="btn btn-primary">Start with single image upload</a>
+        <a href="{% url 'singleimages:single_image_upload_url' %}" class="btn btn-outline-info btn-sm">Start with single image upload</a>
     </div>
     </div>
-</div>
+</div>  
 {% endblock content %}
