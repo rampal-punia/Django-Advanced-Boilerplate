@@ -43,13 +43,13 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
 
 ## Overview
 
-<img src="static\img\login.png" height=auto width=300>
-<img src="static\img\register.png" height=auto width=300>
-<img src="static\img\reg_under_approve.png" height=auto width=300>
-<img src="static\img\dashboard.png" height=auto width=300>
-<img src="static\img\single.png" height=auto width=300>
-<img src="static\img\cropperjs.png" height=auto width=300>
-<img src="static\img\dropzone.png" height=auto width=300>
+<img src="static\img\login.png" height=auto width=450> 
+<img src="static\img\register.png" height=auto width=450>
+<img src="static\img\reg_under_approve.png" height=auto width=450>
+<img src="static\img\dashboard.png" height=auto width=450>
+<img src="static\img\single.png" height=auto width=450>
+<img src="static\img\cropperjs.png" height=auto width=450>
+<img src="static\img\dropzone.png" height=auto width=450>
 
 
 ## Other Python Packages
