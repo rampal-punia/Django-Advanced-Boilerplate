@@ -1,4 +1,4 @@
-{% if not 'log' in request.path and not 'register' in request.path and not request.path == '' %}
+{% if not 'log' in request.path and not 'register' in request.path and not request.path == '/' %}
 <div class="d-flex justify-content-lg-center my-3">
     <a href="{% url 'singleimages:single_image_upload_url' %}" class="btn btn-sm btn-info m-1" type="button">Single Image Upload</a>
     <a href="{% url 'multipleimages:multiple_images_upload_url' %}" class="btn btn-sm btn-primary m-1" type="button">Multiple Images Upload</a>

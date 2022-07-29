@@ -20,7 +20,7 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
         - Users: A users app with login, logout and sign up pages.
 
 - Reusable/Pluggable Apps 
-    - All apps can be added to other projects with tweaking a little.
+    - All apps can be added to other projects with tweaking a little.(Yes few lines need to be added or deleted from settings, urls, and views if an app is removed.)
 
 - Settings.py
     - base.py
@@ -28,7 +28,7 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
     - production.py
     - test.py
 
-- Secrets.json
+- Secrets.json (For boilerplate only. Preferably add in .gitignore)
     - To store database, email backend credentials and the secret-key
 
 - static
@@ -40,6 +40,17 @@ Django boilerplate for any scalable WebApp project. Equipped with __users app__,
 
 - Requirements folder
     - Separate for base, development, production & testing
+
+## Overview
+
+<img src="static\img\login.png" height=auto width=300>
+<img src="static\img\register.png" height=auto width=300>
+<img src="static\img\reg_under_approve.png" height=auto width=300>
+<img src="static\img\dashboard.png" height=auto width=300>
+<img src="static\img\single.png" height=auto width=300>
+<img src="static\img\cropperjs.png" height=auto width=300>
+<img src="static\img\dropzone.png" height=auto width=300>
+
 
 ## Other Python Packages
 - django-crispy-forms
