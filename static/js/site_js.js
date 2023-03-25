@@ -14,6 +14,4 @@ $(document).ready(function () {
 
     // Fade out django message after a while
     $("#djangoMessage").fadeOut(12000);
-
-
 });

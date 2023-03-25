@@ -1,10 +1,10 @@
-let postUrl = $("#DzImageImport").attr("action")
+let postUrl = $("#DzImageUpload").attr("action")
 
 let csrf = document.querySelector('[name=csrfmiddlewaretoken]').value
 
-Dropzone.options.DzImageImport = false
+Dropzone.options.DzImageUpload = false
 
-let imageDropZone = Dropzone.options.DzImageImport = {
+let imageDropZone = Dropzone.options.DzImageUpload = {
     url: postUrl,
     autoProcessQueue: false, //stops from uploading files until user submits form
     method: "post",
