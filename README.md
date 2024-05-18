@@ -85,6 +85,13 @@ This boilerplate is equipped with __users app__, __celery__, __django-debug-tool
 - Django-cleanup
 - OpenCV
 
+```bash
+# install dependencies
+pip install django-crispy-forms crispy-bootstrap4 Pillow Django-cleanup opencv-python
+
+pip install celery django-celery-beat django-celery-results
+```
+
 ## Task queue manager
 
 - Celery
