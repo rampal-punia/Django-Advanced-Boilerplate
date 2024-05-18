@@ -70,6 +70,7 @@ INSTALLED_APPS = [
 
     #### Third Party Apps #####
     'crispy_forms',
+    'crispy_bootstrap4',
     'django_cleanup.apps.CleanupConfig',
 ]
 
@@ -175,7 +176,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = '/home/'
 

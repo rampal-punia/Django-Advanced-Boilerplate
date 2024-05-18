@@ -79,8 +79,8 @@ This boilerplate is equipped with __users app__, __celery__, __django-debug-tool
   - Separate for base, development, production & testing
 
 ## Other Python Packages
-
 - django-crispy-forms
+- crispy-bootstrap4
 - Pillow
 - Django-cleanup
 - OpenCV
